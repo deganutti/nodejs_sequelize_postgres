@@ -10,6 +10,8 @@ export class Banco_Conta{
 
     @ManyToOne(() => Agencia)
     @JoinColumn({name:"id_agencia"})
+    agencia:string;
+    
     @Column()
     id_agencia:string;
 

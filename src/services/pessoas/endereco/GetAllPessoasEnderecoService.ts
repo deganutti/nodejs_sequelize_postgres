@@ -5,7 +5,7 @@ export class GetAllPessoasEnderecoService {
     async execute(){
         const repo = getRepository(PessoasEndereco);
         const pessoas_endereco = await repo.find({ 
-            relations: ['pessoas_endereco'],
+            relations: ['pessoa'],
         });
         return pessoas_endereco;
         //console.log("Implementations");

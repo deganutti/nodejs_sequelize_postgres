@@ -15,22 +15,12 @@ export class CreatePessoasService {
         try {
             const repo = getRepository(Pessoas);
 
-
-
-           
-
-
-
-
-
-           
-
             if (await repo.findOne({ cnpj })) {
 
                 const pessoas = await repo.findOne(
                     {
                         relations: ['pessoas'],
-                        where: { cnpj }
+                        where: { cnpj: cnpj }
                     }
                 );
                 return pessoas;

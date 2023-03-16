@@ -2,18 +2,17 @@ import { getRepository } from "typeorm";
 import { Pessoas } from "../../entities/Pessoas";
 
 export class GetOnePessoasService {
-    async execute(id_pessoa: string) {
+    async execute(cnpj: string) {
         const repo = getRepository(Pessoas);
 
-        if (!await repo.findOne(id_pessoa)) {
+        if (!await repo.findOne({where:{cnpj:cnpj}})) {
             return new Error("Pessoa não existe!");
         }
 
         const pessoas = await repo.findOne(
             {   
                 relations: ['pessoas'],
-                where: { id_pessoa } 
-        
+                where: { cnpj:cnpj } 
             }
         );
         return pessoas;

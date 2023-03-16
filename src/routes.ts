@@ -39,6 +39,7 @@ import { UpdateTipoEnderecoController } from "./controllers/pessoas/endereço_pe
 import { CreateBancoController } from "./controllers/bancos/CreateBancoController";
 import { GetAllBancoController } from "./controllers/bancos/GetAllBancoController";
 import { GetOneBancoController } from "./controllers/bancos/GetOneBancoController";
+import { UpdateBancoController } from "./controllers/bancos/UpdateBancoController";
 
 /**
  * Agencias
@@ -66,8 +67,8 @@ routes.get("/", function (req, res) {
 /**
  * Pessoas
  */
-routes.get("/pessoas/todos/", new GetAllPessoasController().handle);
-routes.get("/pessoas/unico/", new GetOnePessoasController().handle);
+routes.get("/pessoas/", new GetAllPessoasController().handle);
+routes.get("/pessoa/:cnpj", new GetOnePessoasController().handle);
 routes.post("/pessoas/novo/", new CreatePessoasController().handle);
 routes.put("/pessoas/atualiza/", new UpdatePessoasController().handle);
 routes.delete("/pessoas/delete/:id_pessoa", new DeletePessoasController().handle);
@@ -98,6 +99,7 @@ routes.put("/pessoas/endereco/tipo/atualiza/", new UpdateTipoEnderecoController(
  * Bancos
  */
 routes.post("/bancos/novo/", new CreateBancoController().handle);
+routes.put("/bancos/atualiza/", new UpdateBancoController().handle);
 routes.get("/bancos/todos/", new GetAllBancoController().handle);
 routes.get("/bancos/one/", new GetOneBancoController().handle);
 /**

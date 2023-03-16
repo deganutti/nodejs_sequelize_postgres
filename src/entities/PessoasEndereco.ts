@@ -13,7 +13,7 @@ export class PessoasEndereco {
 
     @ManyToOne(() => Pessoas)
     @JoinColumn({name:"id_pessoa"})
-    pessoas_endereco: Pessoas;
+    pessoa: Pessoas;
 
     @Column()
     cep: string;

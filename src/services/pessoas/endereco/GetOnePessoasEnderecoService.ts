@@ -6,7 +6,7 @@ export class GetOnePessoasEnderecoService {
         const repo = getRepository(PessoasEndereco);
 
         const pessoas_endereco = await repo.findOne({
-            relations: ['pessoas_endereco'],
+            relations: ['pessoa'],
             where: { id_endereco }
         });
         

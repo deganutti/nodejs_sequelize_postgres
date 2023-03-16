@@ -19,11 +19,12 @@ export class Pessoas{
     @Column()
     cnpj:string;
 
-    @ManyToOne(() => Tipo_Pessoa)
-    @JoinColumn({name:"id_tipo"})
-    pessoas: Tipo_Pessoa;
     @Column()
     id_tipo:string;
+
+    @ManyToOne(() => Tipo_Pessoa)
+    @JoinColumn({name:"id_tipo"})
+    tipo_pessoa: Tipo_Pessoa;
 
     @CreateDateColumn()
     created_at:Date;
@@ -31,7 +32,6 @@ export class Pessoas{
     @UpdateDateColumn()
     updated_at:Date;
 
-  
     constructor(){
         if(!this.id_pessoa){
             this.id_pessoa = uuid();

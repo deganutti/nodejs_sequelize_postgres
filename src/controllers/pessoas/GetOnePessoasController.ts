@@ -4,10 +4,10 @@ import { GetOnePessoasService } from "../../services/pessoas/GetOnePessoasServic
 export class GetOnePessoasController {
     async handle(request: Request, response: Response) {
 
-        const { id_pessoa } = request.body;
+        const { cnpj } = request.params;
 
         const service = new GetOnePessoasService();
-        const pessoas = await service.execute(id_pessoa);
+        const pessoas = await service.execute(cnpj);
 
         return response.json(pessoas);
     }
